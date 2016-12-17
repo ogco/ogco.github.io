@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sample Jquery UI Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Raleway" rel="stylesheet">
+    <script src="assets/links/jquery.js"></script>
+    <script src="assets/links/jquery-ui.js"></script>
+    <script src="assets/links/jquery.remodal.min.js"></script>
+    <link rel="stylesheet" href="assets/links/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/links/jquery-ui.css">
+    <link rel="stylesheet" href="assets/links/jquery.remodal.css">
+    <link rel="stylesheet" href="assets/links/style.css">
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+
+      $(document).ready(function(){
+          $(".btn1").click(function(){
+              $("div.hover").slideToggle()
+          });
+      });
+
+      $(function() {
+        $(".toggle").hide();
+      });
+
+      $(function() {
+        $("#remodal-bg").show();
+      });
+
+      $(function() {
+        $(".account").click(function (){
+          $(".toggle").slideToggle();
+        });
+      });
+
+      $(function() {
+        $(".off").click(function (){
+          $(".toggle").slideToggle();
+        });
+      });
+    </script>
+    </head>
+  <body>
+    <div class="container">
+      <div class="text col-sm-8">
+        <p>Hello, World! Welcome to this login page!</p>
+        <p>Join now and experience something good.</p>
+      </div>
+      <div class="form col-sm-4">
+        <img src="assets/img/gablogo.png" alt="" />
+        <h1>Login</h1>
+        <form class="" action="index.html" method="post">
+          <p>Email Address</p>
+          <input type="text" name="name" value="">
+          <p>Password</p>
+          <input type="text" name="name" value="">
+          <button type="button" name="button">Login</button>
+          <p class="link account">Don't have an account? Sign-up now!</p>
+          <div class="remodal-bg">
+            <p><a href="#modal">Forgot your account?</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="toggle">
+      <h1>Sign-up here</h1>
+      <div class="left col-sm-4">
+        <div class="name">
+          <p>First Name</p>
+          <input type="text" name="name" value="">
+        </div>
+        <div class="name">
+          <p>Address</p>
+          <input class="address" type="text" name="name" value="">
+          <p>Username</p>
+          <input type="text" name="name" value="">
+          <p>Birth date</p>
+          <input type="text" id="datepicker">
+        </div>
+      </div>
+      <div class="right col-sm-4">
+        <div class="name col-md-6">
+          <p>Last Name</p>
+          <input type="text" name="name" value="">
+          <div class="email">
+            <p>Email Address</p>
+            <input type="text" name="name" value="">
+            <div class="button">
+              <button type="button" name="button">Sign up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="last usog col-sm-4">
+        <img src="assets/img/gablogo.png" alt="" />
+        <p>Hello, do sign up for interesting stuff. I'm sure you'll like it.</p>
+        <p class="off"><a href="#">Close this sign up page</a></p>
+      </div>
+      </div>
+    </div>
+    <div class="remodal" data-remodal-id="modal">
+      <h1 style="color:#000;">Hello, World!</h1>
+      <p>
+        This is a simple dialog box which is made using jquery-ui, a javascript library for animation purposes.
+      </p>
+      <p>
+        Click ok or cancel!
+      </p>
+      <br>
+      <a class="remodal-cancel" href="#">Cancel</a>
+      <a class="remodal-confirm" href="#">OK</a>
+    </div>
+
+    <div data-remodal-id="modal2">
+      <h1>Another one window</h1>
+      <p>
+        Hello!
+      </p>
+      <br>
+      <a class="remodal-confirm" href="#">Hello!</a>
+    </div>
+    <script>
+      $(document).on("open", ".remodal", function () {
+        console.log("open");
+      });
+
+      $(document).on("opened", ".remodal", function () {
+        console.log("opened");
+      });
+
+      $(document).on("close", ".remodal", function (e) {
+        console.log('close' + (e.reason ? ", reason: " + e.reason : ''));
+      });
+
+      $(document).on("closed", ".remodal", function (e) {
+        console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
+      });
+
+      $(document).on("confirm", ".remodal", function () {
+        console.log("confirm");
+      });
+
+      $(document).on("cancel", ".remodal", function () {
+        console.log("cancel");
+      });
+
+    //  You can open or close it like this:
+    //  $(function () {
+    //    var inst = $.remodal.lookup[$("[data-remodal-id=modal]"").data("remodal")];
+    //    inst.open();
+    //    inst.close();
+    //  });
+
+      //  Or init in this way:
+      var inst = $("[data-remodal-id=modal2]").remodal();
+      //  inst.open();
+    </script>
+    <script src="bootstrap.min.js"></script>
+  </body>
+</html>
